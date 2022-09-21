@@ -8,17 +8,21 @@ namespace Scope
 {
     class Program
     {
+        static string language = "English";
+
         static void Main(string[] args)
         {
             SayHello("English");
             SayHello("German");
             SayHello("French");
             SayHello("Yorkshire");
+            
         }
 
         private static void SayHello(string language)
         {
-            switch(language)
+            Console.WriteLine(language);
+            switch (language)
             {
                 case "English":
                     Console.WriteLine("Hello");
