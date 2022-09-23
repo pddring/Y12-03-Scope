@@ -13,15 +13,9 @@ namespace Scope
 
         static void Main(string[] args)
         {
-            ShowOff();
-            ShowOff();
-            ShowOff();
-            ShowOff();
-            ShowOff();
-            ShowOff();
-            ShowOff();
-            ShowOff();
-
+            string language = "Japanese";
+            SayHello(ref language);
+            Console.WriteLine($"I just said hello in {language}");
         }
 
         private static void ShowOff()
@@ -29,17 +23,18 @@ namespace Scope
             List<string> languages = new List<string> {
                 "English", "German", "French", "Yorkshire"
             };
-            Console.WriteLine(title);
 
             foreach (string language in languages)
             {
-                SayHello(language);
+                string lang = language;
+                SayHello(ref lang);
                 // make it say "You can greet people in English by saying 'Hello'"
             }
         }
 
-        private static void SayHello(string language)
+        private static void SayHello(ref string language)
         {
+            language = "English";
             Console.Write($"You can say a greeting in {language} by saying ");
             switch (language)
             {
@@ -51,6 +46,9 @@ namespace Scope
                     break;
                 case "French":
                     Console.WriteLine("Bonjour");
+                    break;
+                case "Japanese":
+                    Console.WriteLine("Kon'nichiwa");
                     break;
                 default:
                     Console.WriteLine("How do?!");
